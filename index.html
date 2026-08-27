@@ -3,11 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The History of Tetris</title>
+
+<title>All About Tetris</title>
 
 <style>
+
+/* =========================
+   GENERAL
+========================= */
+
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -15,149 +23,285 @@ html {
 }
 
 body {
-    margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background: #080812;
     color: white;
+    line-height: 1.6;
 }
 
-/* HERO */
 
-.hero {
-    min-height: 80vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 30px;
-    background: radial-gradient(circle, #29295c, #080812 70%);
-}
-
-.logo {
-    font-size: clamp(50px, 12vw, 120px);
-    font-weight: bold;
-    letter-spacing: 8px;
-    margin: 0;
-}
-
-.logo span:nth-child(1) { color: #00e5ff; }
-.logo span:nth-child(2) { color: #ff4f9a; }
-.logo span:nth-child(3) { color: #ffd43b; }
-.logo span:nth-child(4) { color: #50fa7b; }
-.logo span:nth-child(5) { color: #bd93f9; }
-.logo span:nth-child(6) { color: #ff6b6b; }
-
-.hero p {
-    max-width: 700px;
-    font-size: 20px;
-    color: #ddd;
-}
-
-/* NAV */
+/* =========================
+   NAVIGATION
+========================= */
 
 nav {
     position: sticky;
     top: 0;
-    z-index: 10;
-    padding: 15px;
+    z-index: 1000;
+
+    width: 100%;
+
+    background: #111122;
+
+    border-bottom: 2px solid #333355;
+
+    padding: 16px;
+
     text-align: center;
-    background: #10101d;
-    border-bottom: 1px solid #33334d;
 }
 
 nav a {
+    display: inline-block;
+
     color: white;
+
     text-decoration: none;
-    margin: 0 12px;
+
     font-weight: bold;
+
+    margin: 0 15px;
+
+    padding: 8px 12px;
+
+    border-radius: 8px;
+
+    transition: 0.2s;
 }
 
 nav a:hover {
+    background: #29294d;
     color: #bd93f9;
 }
 
-/* GENERAL */
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 75vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    background:
+        radial-gradient(
+            circle,
+            #30306c 0%,
+            #14142c 40%,
+            #080812 75%
+        );
+}
+
+
+/* =========================
+   TETRIS LOGO
+========================= */
+
+.logo {
+    font-size: clamp(55px, 13vw, 140px);
+
+    font-weight: bold;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 20px;
+
+    text-shadow:
+        0 0 10px rgba(255,255,255,0.2),
+        0 0 30px rgba(189,147,249,0.4);
+}
+
+.logo span:nth-child(1) {
+    color: #00e5ff;
+}
+
+.logo span:nth-child(2) {
+    color: #ff4f9a;
+}
+
+.logo span:nth-child(3) {
+    color: #ffd43b;
+}
+
+.logo span:nth-child(4) {
+    color: #50fa7b;
+}
+
+.logo span:nth-child(5) {
+    color: #bd93f9;
+}
+
+.logo span:nth-child(6) {
+    color: #ff6b6b;
+}
+
+.hero p {
+    max-width: 750px;
+
+    font-size: 21px;
+
+    color: #dddddd;
+}
+
+
+/* =========================
+   SECTIONS
+========================= */
 
 section {
     max-width: 1100px;
+
     margin: auto;
-    padding: 80px 20px;
+
+    padding: 90px 20px;
 }
 
 h2 {
     text-align: center;
-    font-size: 40px;
+
+    font-size: 42px;
+
+    margin-bottom: 15px;
 }
 
 .subtitle {
     text-align: center;
-    color: #aaa;
-    margin-bottom: 40px;
+
+    color: #aaaaaa;
+
+    margin-bottom: 45px;
 }
+
+
+/* =========================
+   CARDS
+========================= */
 
 .card {
     background: #131322;
+
     border: 1px solid #30304a;
-    border-radius: 15px;
-    padding: 25px;
+
+    border-radius: 16px;
+
+    padding: 28px;
+
     margin-bottom: 20px;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,0.2);
 }
 
 .card h3 {
     color: #bd93f9;
+
+    font-size: 25px;
+
+    margin-bottom: 10px;
 }
 
-/* INTRO */
+
+/* =========================
+   ABOUT
+========================= */
 
 .intro {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+
+    grid-template-columns:
+        repeat(2, 1fr);
+
     gap: 20px;
 }
 
-/* TIMELINE */
+
+/* =========================
+   TIMELINE
+========================= */
 
 .timeline {
-    max-width: 800px;
+    max-width: 850px;
+
     margin: auto;
 }
 
 .timeline-item {
-    border-left: 4px solid #bd93f9;
+    border-left:
+        4px solid #bd93f9;
+
     padding-left: 25px;
-    margin-bottom: 30px;
+
+    margin-bottom: 35px;
 }
 
 .year {
     color: #00e5ff;
+
     font-size: 28px;
+
     font-weight: bold;
+
+    margin-bottom: 8px;
 }
 
-/* FACTS */
+
+/* =========================
+   FACTS
+========================= */
 
 .facts {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 20px;
 }
 
 .fact {
     background: #131322;
+
     border: 1px solid #30304a;
+
     border-radius: 15px;
+
     padding: 25px;
+
     text-align: center;
+
+    transition: 0.2s;
+}
+
+.fact:hover {
+    transform: translateY(-5px);
+
+    border-color: #bd93f9;
 }
 
 .fact-number {
-    font-size: 40px;
+    font-size: 42px;
+
     font-weight: bold;
+
     color: #50fa7b;
+
+    margin-bottom: 10px;
 }
 
-/* GAME */
+
+/* =========================
+   GAME
+========================= */
 
 .game-area {
     text-align: center;
@@ -165,71 +309,176 @@ h2 {
 
 .game-box {
     display: inline-block;
+
     padding: 20px;
+
     background: #11111e;
+
     border: 2px solid #38385c;
-    border-radius: 15px;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 0 40px rgba(
+            189,
+            147,
+            249,
+            0.15
+        );
 }
+
+
+/* =========================
+   SCORE PANEL
+========================= */
+
+.score-panel {
+    display: flex;
+
+    justify-content: space-around;
+
+    gap: 10px;
+
+    margin-bottom: 15px;
+
+    padding: 12px;
+
+    background: #080812;
+
+    border: 2px solid #30304a;
+
+    border-radius: 12px;
+}
+
+.score-item {
+    min-width: 75px;
+
+    text-align: center;
+}
+
+.score-item small {
+    display: block;
+
+    color: #888888;
+
+    font-size: 11px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+}
+
+.score-item strong {
+    display: block;
+
+    margin-top: 2px;
+
+    color: #50fa7b;
+
+    font-size: 25px;
+
+    text-shadow:
+        0 0 10px rgba(
+            80,
+            250,
+            123,
+            0.5
+        );
+}
+
+
+/* =========================
+   CANVAS
+========================= */
 
 canvas {
     display: block;
-    background: #050509;
-    border: 3px solid #555577;
+
     width: 240px;
+
     height: 480px;
+
+    background: #050509;
+
+    border: 3px solid #555577;
 }
 
-.stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
-    gap: 15px;
-}
 
-.stats span {
-    color: #50fa7b;
-    font-weight: bold;
-}
+/* =========================
+   BUTTONS
+========================= */
 
 button {
     background: #bd93f9;
+
+    color: #080812;
+
     border: none;
+
     border-radius: 8px;
+
     padding: 12px 18px;
+
     margin: 5px;
+
+    font-size: 15px;
+
     font-weight: bold;
+
     cursor: pointer;
+
+    transition: 0.2s;
 }
 
 button:hover {
     background: #d6b8ff;
+
+    transform: scale(1.04);
 }
 
 .controls {
-    color: #aaa;
+    color: #aaaaaa;
+
     margin-top: 15px;
 }
 
-/* SOURCES */
+
+/* =========================
+   SOURCES
+========================= */
 
 .sources a {
     color: #00e5ff;
 }
 
-.sources li {
-    margin-bottom: 20px;
+.sources a:hover {
+    color: #50fa7b;
 }
 
-/* FOOTER */
+.sources li {
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     text-align: center;
-    color: #888;
-    padding: 40px;
-    border-top: 1px solid #30304a;
+
+    color: #888888;
+
+    padding: 45px 20px;
+
+    border-top:
+        1px solid #30304a;
 }
 
-/* MOBILE */
+
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 700px) {
 
@@ -242,120 +491,162 @@ footer {
     }
 
     nav a {
+        margin: 0 3px;
+
+        padding: 7px;
+
         font-size: 13px;
-        margin: 0 5px;
+    }
+
+    .logo {
+        letter-spacing: 3px;
     }
 
 }
+
 </style>
 </head>
 
+
 <body>
 
-<!-- HERO -->
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<nav>
+
+    <a href="#about">About</a>
+
+    <a href="#history">History</a>
+
+    <a href="#facts">Facts</a>
+
+    <a href="#game">Play</a>
+
+    <a href="#sources">Sources</a>
+
+</nav>
+
+
+<!-- =========================
+     HERO
+========================= -->
 
 <header class="hero">
 
     <h1 class="logo">
+
         <span>T</span>
         <span>E</span>
         <span>T</span>
         <span>R</span>
         <span>I</span>
         <span>S</span>
+
     </h1>
 
     <p>
-        The history of one of the most famous puzzle games ever created.
+        The history of one of the most famous
+        puzzle games ever created.
     </p>
 
 </header>
 
 
-<!-- NAVIGATION -->
-
-<nav>
-    <a href="#about">About</a>
-    <a href="#history">History</a>
-    <a href="#facts">Facts</a>
-    <a href="#game">Play</a>
-    <a href="#sources">Sources</a>
-</nav>
-
-
-<!-- ABOUT -->
+<!-- =========================
+     ABOUT
+========================= -->
 
 <section id="about">
 
     <h2>What is Tetris?</h2>
 
     <p class="subtitle">
-        A simple puzzle game that became a worldwide phenomenon.
+        A simple idea that became a worldwide phenomenon.
     </p>
 
+
     <div class="intro">
+
 
         <div class="card">
 
             <h3>🧩 The Game</h3>
 
             <p>
-                Tetris is a puzzle game where players arrange falling
-                geometric pieces called Tetriminos.
+                Tetris is a puzzle game where players
+                arrange falling geometric pieces called
+                Tetriminos.
             </p>
 
+            <br>
+
             <p>
-                The goal is to create complete horizontal lines.
-                Completed lines disappear, giving the player points
-                and more room to play.
+                The goal is to create complete horizontal
+                lines. When a line is completed, it
+                disappears and the player earns points.
             </p>
 
         </div>
+
 
         <div class="card">
 
             <h3>👨‍💻 The Creator</h3>
 
             <p>
-                Tetris was created by Soviet computer programmer
-                Alexey Pajitnov in 1984.
+                Tetris was created by Soviet computer
+                programmer Alexey Pajitnov in 1984.
             </p>
 
+            <br>
+
             <p>
-                Pajitnov created the original version while working
-                at the Soviet Academy of Sciences in Moscow.
+                Pajitnov created the original version while
+                working at the Soviet Academy of Sciences
+                in Moscow.
             </p>
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- HISTORY -->
+<!-- =========================
+     HISTORY
+========================= -->
 
 <section id="history">
 
     <h2>History of Tetris</h2>
 
     <p class="subtitle">
-        From a Soviet computer to consoles, handhelds and modern devices.
+        From a Soviet computer to the entire world.
     </p>
+
 
     <div class="timeline">
 
+
         <div class="timeline-item">
 
-            <div class="year">1984</div>
+            <div class="year">
+                1984
+            </div>
 
             <div class="card">
 
                 <h3>Tetris is created</h3>
 
                 <p>
-                    Alexey Pajitnov creates the first version of
-                    Tetris in Moscow on an Electronika 60 computer.
+                    Alexey Pajitnov creates the first version
+                    of Tetris in Moscow on an Electronika 60
+                    computer.
                 </p>
 
             </div>
@@ -365,15 +656,18 @@ footer {
 
         <div class="timeline-item">
 
-            <div class="year">1985</div>
+            <div class="year">
+                1985
+            </div>
 
             <div class="card">
 
                 <h3>The game spreads</h3>
 
                 <p>
-                    Tetris is ported to other computers and begins
-                    spreading outside its original environment.
+                    Tetris is ported to other computers and
+                    starts spreading beyond its original
+                    environment.
                 </p>
 
             </div>
@@ -383,15 +677,17 @@ footer {
 
         <div class="timeline-item">
 
-            <div class="year">1987</div>
+            <div class="year">
+                1987
+            </div>
 
             <div class="card">
 
                 <h3>Tetris reaches the West</h3>
 
                 <p>
-                    Versions of Tetris become available in North
-                    America and Europe.
+                    Tetris becomes available in North America
+                    and Europe.
                 </p>
 
             </div>
@@ -401,15 +697,17 @@ footer {
 
         <div class="timeline-item">
 
-            <div class="year">1989</div>
+            <div class="year">
+                1989
+            </div>
 
             <div class="card">
 
-                <h3>Game Boy</h3>
+                <h3>The Game Boy</h3>
 
                 <p>
                     Nintendo releases the Game Boy with Tetris,
-                    helping make the game a worldwide hit.
+                    helping the game become a worldwide hit.
                 </p>
 
             </div>
@@ -419,15 +717,17 @@ footer {
 
         <div class="timeline-item">
 
-            <div class="year">1993</div>
+            <div class="year">
+                1993
+            </div>
 
             <div class="card">
 
-                <h3>Tetris in space</h3>
+                <h3>Tetris in space 🚀</h3>
 
                 <p>
-                    Tetris becomes the first video game played in
-                    space, according to Guinness World Records.
+                    Tetris became the first video game played
+                    in space, according to Guinness World Records.
                 </p>
 
             </div>
@@ -437,15 +737,18 @@ footer {
 
         <div class="timeline-item">
 
-            <div class="year">1996</div>
+            <div class="year">
+                1996
+            </div>
 
             <div class="card">
 
                 <h3>The Tetris Company</h3>
 
                 <p>
-                    Alexey Pajitnov and Henk Rogers establish the
-                    company that manages the Tetris brand.
+                    Alexey Pajitnov and Henk Rogers establish
+                    the company responsible for managing the
+                    Tetris brand.
                 </p>
 
             </div>
@@ -455,7 +758,9 @@ footer {
 
         <div class="timeline-item">
 
-            <div class="year">2014</div>
+            <div class="year">
+                2014
+            </div>
 
             <div class="card">
 
@@ -472,27 +777,32 @@ footer {
 
         <div class="timeline-item">
 
-            <div class="year">2024</div>
+            <div class="year">
+                2024
+            </div>
 
             <div class="card">
 
-                <h3>40th Anniversary</h3>
+                <h3>40th Anniversary 🎉</h3>
 
                 <p>
-                    Tetris celebrates 40 years of entertaining players
-                    around the world.
+                    Tetris celebrates 40 years since Alexey
+                    Pajitnov created the original game.
                 </p>
 
             </div>
 
         </div>
 
+
     </div>
 
 </section>
 
 
-<!-- FACTS -->
+<!-- =========================
+     FACTS
+========================= -->
 
 <section id="facts">
 
@@ -502,11 +812,15 @@ footer {
         Some interesting facts about the game.
     </p>
 
+
     <div class="facts">
+
 
         <div class="fact">
 
-            <div class="fact-number">1984</div>
+            <div class="fact-number">
+                1984
+            </div>
 
             <p>
                 The year Tetris was created.
@@ -517,7 +831,9 @@ footer {
 
         <div class="fact">
 
-            <div class="fact-number">7</div>
+            <div class="fact-number">
+                7
+            </div>
 
             <p>
                 There are seven classic Tetrimino shapes.
@@ -528,10 +844,12 @@ footer {
 
         <div class="fact">
 
-            <div class="fact-number">40+</div>
+            <div class="fact-number">
+                4
+            </div>
 
             <p>
-                Tetris has existed for more than four decades.
+                Each classic Tetrimino contains four squares.
             </p>
 
         </div>
@@ -539,7 +857,9 @@ footer {
 
         <div class="fact">
 
-            <div class="fact-number">10</div>
+            <div class="fact-number">
+                10
+            </div>
 
             <p>
                 A standard Tetris playfield is 10 columns wide.
@@ -550,7 +870,9 @@ footer {
 
         <div class="fact">
 
-            <div class="fact-number">20</div>
+            <div class="fact-number">
+                20
+            </div>
 
             <p>
                 A standard visible playfield is 20 rows high.
@@ -561,88 +883,141 @@ footer {
 
         <div class="fact">
 
-            <div class="fact-number">4</div>
+            <div class="fact-number">
+                40+
+            </div>
 
             <p>
-                Each classic Tetrimino is made from four squares.
+                Tetris has been around for more than four decades.
             </p>
 
         </div>
+
 
     </div>
 
 </section>
 
 
-<!-- GAME -->
+<!-- =========================
+     GAME
+========================= -->
 
 <section id="game">
 
     <h2>🎮 Play Tetris</h2>
 
     <p class="subtitle">
-        Try this simple Tetris-style browser demo.
+        Place blocks, clear rows, and beat your high score!
     </p>
+
 
     <div class="game-area">
 
         <div class="game-box">
 
-            <canvas id="gameCanvas"
-                    width="240"
-                    height="480">
-            </canvas>
 
-            <div class="stats">
+            <!-- SCORE PANEL -->
 
-                <div>
-                    Score:
-                    <span id="score">0</span>
+            <div class="score-panel">
+
+                <div class="score-item">
+
+                    <small>SCORE</small>
+
+                    <strong id="score">
+                        0
+                    </strong>
+
                 </div>
 
-                <div>
-                    Lines:
-                    <span id="lines">0</span>
+
+                <div class="score-item">
+
+                    <small>LINES</small>
+
+                    <strong id="lines">
+                        0
+                    </strong>
+
                 </div>
 
-                <div>
-                    Level:
-                    <span id="level">1</span>
+
+                <div class="score-item">
+
+                    <small>LEVEL</small>
+
+                    <strong id="level">
+                        1
+                    </strong>
+
                 </div>
 
             </div>
 
+
+            <!-- GAME BOARD -->
+
+            <canvas
+                id="gameCanvas"
+                width="240"
+                height="480">
+            </canvas>
+
+
             <br>
 
+
             <button onclick="restartGame()">
-                Restart
+                🔄 Restart Game
             </button>
+
+
+            <!-- CONTROLS -->
 
             <div class="controls">
 
                 <p>
-                    ← → Move
+                    <strong>Controls</strong>
                 </p>
 
                 <p>
-                    ↑ Rotate
+                    ⬅️ Left &nbsp;&nbsp;
+                    ➡️ Right
                 </p>
 
                 <p>
-                    ↓ Move Down
+                    ⬆️ Rotate &nbsp;&nbsp;
+                    ⬇️ Move Down
                 </p>
 
                 <p>
-                    SPACE = Drop
+                    SPACE = Hard Drop
                 </p>
 
-                <button onclick="move(-1)">◀</button>
-                <button onclick="rotatePiece()">↻</button>
-                <button onclick="move(1)">▶</button>
-                <button onclick="softDrop()">▼</button>
-                <button onclick="hardDrop()">DROP</button>
+
+                <button onclick="move(-1)">
+                    ◀
+                </button>
+
+                <button onclick="rotatePiece()">
+                    ↻
+                </button>
+
+                <button onclick="move(1)">
+                    ▶
+                </button>
+
+                <button onclick="softDrop()">
+                    ▼
+                </button>
+
+                <button onclick="hardDrop()">
+                    ⬇ DROP
+                </button>
 
             </div>
+
 
         </div>
 
@@ -651,15 +1026,18 @@ footer {
 </section>
 
 
-<!-- SOURCES -->
+<!-- =========================
+     SOURCES
+========================= -->
 
 <section id="sources">
 
     <h2>📚 Sources</h2>
 
     <p class="subtitle">
-        Sources used for the historical information on this website.
+        Sources used for the historical information.
     </p>
+
 
     <div class="card sources">
 
@@ -667,15 +1045,21 @@ footer {
 
             <li>
 
-                <strong>The Tetris Company</strong>
+                <strong>
+                    The Tetris Company
+                </strong>
 
                 <p>
-                    Official information about the history and creation
-                    of Tetris.
+                    Official information about the creation
+                    and history of Tetris.
                 </p>
 
-                <a href="https://tetris.com/about" target="_blank">
-                    https://tetris.com/about
+                <a
+                    href="https://tetris.com/about"
+                    target="_blank">
+
+                    Tetris.com — About
+
                 </a>
 
             </li>
@@ -683,15 +1067,20 @@ footer {
 
             <li>
 
-                <strong>The Tetris Company — History</strong>
+                <strong>
+                    Tetris.com
+                </strong>
 
                 <p>
-                    Official Tetris history and timeline.
+                    Official website for Tetris.
                 </p>
 
-                <a href="https://tetris.com/news/the-history-of-tetris"
-                   target="_blank">
-                    Tetris History
+                <a
+                    href="https://tetris.com/"
+                    target="_blank">
+
+                    Tetris.com
+
                 </a>
 
             </li>
@@ -699,16 +1088,21 @@ footer {
 
             <li>
 
-                <strong>Smithsonian Magazine</strong>
-
-                <p>
-                    Background on the Game Boy and the role Tetris
-                    played in its success.
-                </p>
-
-                <a href="https://www.smithsonianmag.com/"
-                   target="_blank">
+                <strong>
                     Smithsonian Magazine
+                </strong>
+
+                <p>
+                    Information about video game history
+                    and the Game Boy.
+                </p>
+
+                <a
+                    href="https://www.smithsonianmag.com/"
+                    target="_blank">
+
+                    Smithsonian Magazine
+
                 </a>
 
             </li>
@@ -716,15 +1110,21 @@ footer {
 
             <li>
 
-                <strong>Guinness World Records</strong>
+                <strong>
+                    Guinness World Records
+                </strong>
 
                 <p>
-                    Information about Tetris being played in space.
+                    Information about Tetris and its
+                    achievements.
                 </p>
 
-                <a href="https://www.guinnessworldrecords.com/"
-                   target="_blank">
+                <a
+                    href="https://www.guinnessworldrecords.com/"
+                    target="_blank">
+
                     Guinness World Records
+
                 </a>
 
             </li>
@@ -736,14 +1136,18 @@ footer {
 </section>
 
 
+<!-- =========================
+     FOOTER
+========================= -->
+
 <footer>
 
     <p>
-        Tetris History Project
+        <strong>All About Tetris</strong>
     </p>
 
     <p>
-        Educational fan website.
+        An educational fan project about the history of Tetris.
     </p>
 
     <p>
@@ -755,31 +1159,47 @@ footer {
 
 <script>
 
-/* ==========================================
-   TETRIS GAME
-========================================== */
+/* =========================
+   GAME SETTINGS
+========================= */
 
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
+const canvas =
+    document.getElementById("gameCanvas");
+
+const ctx =
+    canvas.getContext("2d");
 
 const COLS = 10;
+
 const ROWS = 20;
+
 const BLOCK = 24;
 
-let board = [];
-let currentPiece = null;
+
+/* =========================
+   GAME VARIABLES
+========================= */
+
+let board;
+
+let currentPiece;
 
 let score = 0;
+
 let lines = 0;
+
 let level = 1;
 
 let gameOver = false;
 
-let dropCounter = 0;
+let dropTimer = 0;
+
 let lastTime = 0;
 
 
-/* PIECES */
+/* =========================
+   TETRIMINOS
+========================= */
 
 const PIECES = [
 
@@ -841,13 +1261,19 @@ const PIECES = [
 ];
 
 
-/* CREATE BOARD */
+/* =========================
+   CREATE BOARD
+========================= */
 
 function createBoard() {
 
     board = [];
 
-    for (let y = 0; y < ROWS; y++) {
+    for (
+        let y = 0;
+        y < ROWS;
+        y++
+    ) {
 
         board.push(
             new Array(COLS).fill(0)
@@ -858,37 +1284,50 @@ function createBoard() {
 }
 
 
-/* NEW PIECE */
+/* =========================
+   CREATE PIECE
+========================= */
 
 function createPiece() {
 
-    const random =
+    const randomPiece =
         PIECES[
             Math.floor(
-                Math.random() * PIECES.length
+                Math.random() *
+                PIECES.length
             )
         ];
 
     currentPiece = {
 
-        shape: random.shape.map(
-            row => [...row]
-        ),
+        shape:
+            randomPiece.shape.map(
+                row => [...row]
+            ),
 
-        color: random.color,
+        color:
+            randomPiece.color,
 
-        x: Math.floor(COLS / 2) - 1,
+        x:
+            Math.floor(COLS / 2) - 1,
 
-        y: 0
+        y:
+            0
 
     };
 
 }
 
 
-/* DRAW BLOCK */
+/* =========================
+   DRAW BLOCK
+========================= */
 
-function drawBlock(x, y, color) {
+function drawBlock(
+    x,
+    y,
+    color
+) {
 
     ctx.fillStyle = color;
 
@@ -899,7 +1338,7 @@ function drawBlock(x, y, color) {
         BLOCK
     );
 
-    ctx.strokeStyle = "#101018";
+    ctx.strokeStyle = "#111122";
 
     ctx.lineWidth = 2;
 
@@ -913,7 +1352,9 @@ function drawBlock(x, y, color) {
 }
 
 
-/* DRAW EVERYTHING */
+/* =========================
+   DRAW GAME
+========================= */
 
 function draw() {
 
@@ -927,11 +1368,19 @@ function draw() {
     );
 
 
-    /* Board */
+    /* DRAW BOARD */
 
-    for (let y = 0; y < ROWS; y++) {
+    for (
+        let y = 0;
+        y < ROWS;
+        y++
+    ) {
 
-        for (let x = 0; x < COLS; x++) {
+        for (
+            let x = 0;
+            x < COLS;
+            x++
+        ) {
 
             if (board[y][x]) {
 
@@ -948,7 +1397,7 @@ function draw() {
     }
 
 
-    /* Current piece */
+    /* DRAW CURRENT PIECE */
 
     if (currentPiece) {
 
@@ -979,31 +1428,44 @@ function draw() {
 }
 
 
-/* COLLISION */
+/* =========================
+   COLLISION
+========================= */
 
 function collision() {
 
-    const shape = currentPiece.shape;
+    const shape =
+        currentPiece.shape;
 
-    for (let y = 0; y < shape.length; y++) {
 
-        for (let x = 0; x < shape[y].length; x++) {
+    for (
+        let y = 0;
+        y < shape.length;
+        y++
+    ) {
+
+        for (
+            let x = 0;
+            x < shape[y].length;
+            x++
+        ) {
 
             if (!shape[y][x]) {
                 continue;
             }
 
-            const boardX =
+
+            const newX =
                 currentPiece.x + x;
 
-            const boardY =
+            const newY =
                 currentPiece.y + y;
 
 
             if (
-                boardX < 0 ||
-                boardX >= COLS ||
-                boardY >= ROWS
+                newX < 0 ||
+                newX >= COLS ||
+                newY >= ROWS
             ) {
 
                 return true;
@@ -1012,8 +1474,8 @@ function collision() {
 
 
             if (
-                boardY >= 0 &&
-                board[boardY][boardX]
+                newY >= 0 &&
+                board[newY][newX]
             ) {
 
                 return true;
@@ -1024,14 +1486,20 @@ function collision() {
 
     }
 
+
     return false;
 
 }
 
 
-/* MERGE PIECE */
+/* =========================
+   MERGE PIECE
+========================= */
 
 function mergePiece() {
+
+    let blocksPlaced = 0;
+
 
     currentPiece.shape.forEach(
         (row, y) => {
@@ -1045,7 +1513,10 @@ function mergePiece() {
                             currentPiece.y + y
                         ][
                             currentPiece.x + x
-                        ] = currentPiece.color;
+                        ] =
+                            currentPiece.color;
+
+                        blocksPlaced++;
 
                     }
 
@@ -1055,14 +1526,27 @@ function mergePiece() {
         }
     );
 
+
+    /*
+       EVERY BLOCK PLACED = +1
+    */
+
+    score += blocksPlaced;
+
+
+    updateStats();
+
 }
 
 
-/* CLEAR LINES */
+/* =========================
+   CLEAR ROWS
+========================= */
 
 function clearLines() {
 
     let cleared = 0;
+
 
     for (
         let y = ROWS - 1;
@@ -1076,11 +1560,16 @@ function clearLines() {
             )
         ) {
 
-            board.splice(y, 1);
+            board.splice(
+                y,
+                1
+            );
+
 
             board.unshift(
                 new Array(COLS).fill(0)
             );
+
 
             cleared++;
 
@@ -1091,15 +1580,27 @@ function clearLines() {
     }
 
 
+    /*
+       EVERY ROW CLEARED = +10
+
+       1 ROW = +10
+       2 ROWS = +20
+       3 ROWS = +30
+       4 ROWS = +40
+    */
+
     if (cleared > 0) {
+
+        score += cleared * 10;
 
         lines += cleared;
 
-        score +=
-            cleared * cleared * 100;
 
         level =
-            Math.floor(lines / 10) + 1;
+            Math.floor(
+                lines / 10
+            ) + 1;
+
 
         updateStats();
 
@@ -1108,7 +1609,9 @@ function clearLines() {
 }
 
 
-/* MOVE */
+/* =========================
+   MOVE
+========================= */
 
 function move(direction) {
 
@@ -1116,7 +1619,9 @@ function move(direction) {
         return;
     }
 
+
     currentPiece.x += direction;
+
 
     if (collision()) {
 
@@ -1124,12 +1629,15 @@ function move(direction) {
 
     }
 
+
     draw();
 
 }
 
 
-/* DROP */
+/* =========================
+   NORMAL DROP
+========================= */
 
 function dropPiece() {
 
@@ -1137,11 +1645,14 @@ function dropPiece() {
         return;
     }
 
+
     currentPiece.y++;
+
 
     if (collision()) {
 
         currentPiece.y--;
+
 
         mergePiece();
 
@@ -1149,32 +1660,41 @@ function dropPiece() {
 
         createPiece();
 
+
         if (collision()) {
 
             gameOver = true;
 
+
             setTimeout(
-                function () {
+                function() {
 
                     alert(
-                        "Game Over! Score: " +
-                        score
+                        "GAME OVER!\n\n" +
+                        "Score: " +
+                        score +
+                        "\n\n" +
+                        "Lines: " +
+                        lines
                     );
 
                 },
-                50
+                100
             );
 
         }
 
     }
 
+
     draw();
 
 }
 
 
-/* SOFT DROP */
+/* =========================
+   SOFT DROP
+========================= */
 
 function softDrop() {
 
@@ -1182,16 +1702,39 @@ function softDrop() {
         return;
     }
 
-    dropPiece();
 
-    score++;
+    currentPiece.y++;
 
-    updateStats();
+
+    if (collision()) {
+
+        currentPiece.y--;
+
+
+        mergePiece();
+
+        clearLines();
+
+        createPiece();
+
+
+        if (collision()) {
+
+            gameOver = true;
+
+        }
+
+    }
+
+
+    draw();
 
 }
 
 
-/* HARD DROP */
+/* =========================
+   HARD DROP
+========================= */
 
 function hardDrop() {
 
@@ -1199,27 +1742,35 @@ function hardDrop() {
         return;
     }
 
+
+    /*
+       HARD DROP GIVES
+       ZERO POINTS
+    */
+
     while (!collision()) {
 
         currentPiece.y++;
 
     }
 
+
     currentPiece.y--;
+
 
     mergePiece();
 
     clearLines();
 
-    score += 2;
-
     createPiece();
+
 
     if (collision()) {
 
         gameOver = true;
 
     }
+
 
     updateStats();
 
@@ -1228,7 +1779,9 @@ function hardDrop() {
 }
 
 
-/* ROTATE */
+/* =========================
+   ROTATE
+========================= */
 
 function rotatePiece() {
 
@@ -1236,21 +1789,30 @@ function rotatePiece() {
         return;
     }
 
+
     const oldShape =
         currentPiece.shape;
+
 
     const rows =
         oldShape.length;
 
+
     const cols =
         oldShape[0].length;
+
 
     const newShape = [];
 
 
-    for (let x = 0; x < cols; x++) {
+    for (
+        let x = 0;
+        x < cols;
+        x++
+    ) {
 
         newShape[x] = [];
+
 
         for (
             let y = rows - 1;
@@ -1267,7 +1829,8 @@ function rotatePiece() {
     }
 
 
-    currentPiece.shape = newShape;
+    currentPiece.shape =
+        newShape;
 
 
     if (collision()) {
@@ -1277,38 +1840,52 @@ function rotatePiece() {
 
     }
 
+
     draw();
 
 }
 
 
-/* STATS */
+/* =========================
+   UPDATE SCORE
+========================= */
 
 function updateStats() {
 
-    document.getElementById("score")
-        .textContent = score;
+    document.getElementById(
+        "score"
+    ).textContent = score;
 
-    document.getElementById("lines")
-        .textContent = lines;
 
-    document.getElementById("level")
-        .textContent = level;
+    document.getElementById(
+        "lines"
+    ).textContent = lines;
+
+
+    document.getElementById(
+        "level"
+    ).textContent = level;
 
 }
 
 
-/* RESTART */
+/* =========================
+   RESTART
+========================= */
 
 function restartGame() {
 
     createBoard();
 
     score = 0;
+
     lines = 0;
+
     level = 1;
 
     gameOver = false;
+
+    dropTimer = 0;
 
     createPiece();
 
@@ -1319,11 +1896,14 @@ function restartGame() {
 }
 
 
-/* KEYBOARD */
+/* =========================
+   KEYBOARD CONTROLS
+========================= */
 
 document.addEventListener(
     "keydown",
     function(event) {
+
 
         if (
             event.key === "ArrowLeft" ||
@@ -1338,31 +1918,41 @@ document.addEventListener(
         }
 
 
-        if (event.key === "ArrowLeft") {
+        if (
+            event.key === "ArrowLeft"
+        ) {
 
             move(-1);
 
         }
 
-        else if (event.key === "ArrowRight") {
+        else if (
+            event.key === "ArrowRight"
+        ) {
 
             move(1);
 
         }
 
-        else if (event.key === "ArrowDown") {
+        else if (
+            event.key === "ArrowDown"
+        ) {
 
             softDrop();
 
         }
 
-        else if (event.key === "ArrowUp") {
+        else if (
+            event.key === "ArrowUp"
+        ) {
 
             rotatePiece();
 
         }
 
-        else if (event.code === "Space") {
+        else if (
+            event.code === "Space"
+        ) {
 
             hardDrop();
 
@@ -1372,36 +1962,47 @@ document.addEventListener(
 );
 
 
-/* GAME LOOP */
+/* =========================
+   GAME LOOP
+========================= */
 
 function gameLoop(time) {
 
     const delta =
         time - lastTime;
 
+
     lastTime = time;
+
 
     if (!gameOver) {
 
-        dropCounter += delta;
+        dropTimer += delta;
+
 
         const speed =
             Math.max(
                 100,
-                800 - (level - 1) * 60
+                800 -
+                (level - 1) * 60
             );
 
-        if (dropCounter > speed) {
+
+        if (
+            dropTimer > speed
+        ) {
 
             dropPiece();
 
-            dropCounter = 0;
+            dropTimer = 0;
 
         }
 
     }
 
+
     draw();
+
 
     requestAnimationFrame(
         gameLoop
@@ -1410,7 +2011,9 @@ function gameLoop(time) {
 }
 
 
-/* START */
+/* =========================
+   START GAME
+========================= */
 
 restartGame();
 
