@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -27,6 +27,22 @@ body {
     background: #080812;
     color: white;
     line-height: 1.6;
+}
+
+
+/* =========================
+   PARTICLE BACKGROUND
+========================= */
+
+#particleCanvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    background: #080812;
 }
 
 
@@ -74,7 +90,7 @@ nav a:hover {
     align-items: center;
     text-align: center;
     padding: 10px;
-    background: #080812;
+    background: transparent;
 }
 
 
@@ -151,7 +167,7 @@ h2 {
 ========================= */
 
 .card {
-    background: #131322;
+    background: rgba(19, 19, 34, 0.94);
     border: 1px solid #30304a;
     border-radius: 16px;
     padding: 28px;
@@ -173,10 +189,7 @@ h2 {
 
 .intro {
     display: grid;
-
-    grid-template-columns:
-        repeat(2, 1fr);
-
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
 }
 
@@ -191,8 +204,7 @@ h2 {
 }
 
 .timeline-item {
-    border-left:
-        4px solid #bd93f9;
+    border-left: 4px solid #bd93f9;
     padding-left: 25px;
     margin-bottom: 35px;
 }
@@ -211,38 +223,28 @@ h2 {
 
 .facts {
     display: grid;
-    grid-template-columns:
-        repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 20px;
 }
 
 .fact {
-    background: #131322;
-
+    background: rgba(19, 19, 34, 0.94);
     border: 1px solid #30304a;
-
     border-radius: 15px;
-
     padding: 25px;
-
     text-align: center;
-
     transition: 0.2s;
 }
 
 .fact:hover {
     transform: translateY(-5px);
-
     border-color: #bd93f9;
 }
 
 .fact-number {
     font-size: 42px;
-
     font-weight: bold;
-
     color: #50fa7b;
-
     margin-bottom: 10px;
 }
 
@@ -257,22 +259,12 @@ h2 {
 
 .game-box {
     display: inline-block;
-
     padding: 20px;
-
-    background: #11111e;
-
+    background: rgba(17, 17, 30, 0.96);
     border: 2px solid #38385c;
-
     border-radius: 18px;
-
     box-shadow:
-        0 0 40px rgba(
-            189,
-            147,
-            249,
-            0.15
-        );
+        0 0 40px rgba(189,147,249,0.15);
 }
 
 
@@ -282,56 +274,35 @@ h2 {
 
 .score-panel {
     display: flex;
-
     justify-content: space-around;
-
     gap: 10px;
-
     margin-bottom: 15px;
-
     padding: 12px;
-
     background: #080812;
-
     border: 2px solid #30304a;
-
     border-radius: 12px;
 }
 
 .score-item {
     min-width: 75px;
-
     text-align: center;
 }
 
 .score-item small {
     display: block;
-
     color: #888888;
-
     font-size: 11px;
-
     font-weight: bold;
-
     letter-spacing: 1px;
 }
 
 .score-item strong {
     display: block;
-
     margin-top: 2px;
-
     color: #50fa7b;
-
     font-size: 25px;
-
     text-shadow:
-        0 0 10px rgba(
-            80,
-            250,
-            123,
-            0.5
-        );
+        0 0 10px rgba(80,250,123,0.5);
 }
 
 
@@ -339,15 +310,11 @@ h2 {
    CANVAS
 ========================= */
 
-canvas {
+canvas#gameCanvas {
     display: block;
-
     width: 240px;
-
     height: 480px;
-
     background: #050509;
-
     border: 3px solid #555577;
 }
 
@@ -358,35 +325,24 @@ canvas {
 
 button {
     background: #bd93f9;
-
     color: #080812;
-
     border: none;
-
     border-radius: 8px;
-
     padding: 12px 18px;
-
     margin: 5px;
-
     font-size: 15px;
-
     font-weight: bold;
-
     cursor: pointer;
-
     transition: 0.2s;
 }
 
 button:hover {
     background: #d6b8ff;
-
     transform: scale(1.04);
 }
 
 .controls {
     color: #aaaaaa;
-
     margin-top: 15px;
 }
 
@@ -414,13 +370,9 @@ button:hover {
 
 footer {
     text-align: center;
-
     color: #888888;
-
     padding: 45px 20px;
-
-    border-top:
-        1px solid #30304a;
+    border-top: 1px solid #30304a;
 }
 
 
@@ -440,9 +392,7 @@ footer {
 
     nav a {
         margin: 0 3px;
-
         padding: 7px;
-
         font-size: 13px;
     }
 
@@ -457,6 +407,9 @@ footer {
 
 
 <body>
+
+<!-- PARTICLE BACKGROUND -->
+<canvas id="particleCanvas"></canvas>
 
 
 <!-- =========================
@@ -481,32 +434,37 @@ footer {
 
 </nav>
 
-<marquee scrollamount="15">Made by Krishang and AI!</marquee>
-<div style="display: flex;width: 100%;">
-    <hr style="height: 5px; background-color: #00e5ff; width: 16.66666667%; border-color: #00ffff; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff4f9a; width: 16.66666667%; border-color: #ff4f9b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ffd43b; width: 16.66666667%; border-color: #ffd43b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #50fa7b; width: 16.66666667%; border-color: #50fa7b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #bd93f9; width: 16.66666667%; border-color: #bd93f9; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff6b6b; width: 16.66666667%; border-color: #ff6b6b; border-width: 7px;">
-</div> 
+
+<marquee scrollamount="15">
+    Made by Krishang and AI!
+</marquee>
+
+
+<div style="display:flex;width:100%;">
+    <hr style="height:5px;background-color:#00e5ff;width:16.66666667%;border-color:#00ffff;border-width:7px;">
+    <hr style="height:5px;background-color:#ff4f9a;width:16.66666667%;border-color:#ff4f9b;border-width:7px;">
+    <hr style="height:5px;background-color:#ffd43b;width:16.66666667%;border-color:#ffd43b;border-width:7px;">
+    <hr style="height:5px;background-color:#50fa7b;width:16.66666667%;border-color:#50fa7b;border-width:7px;">
+    <hr style="height:5px;background-color:#bd93f9;width:16.66666667%;border-color:#bd93f9;border-width:7px;">
+    <hr style="height:5px;background-color:#ff6b6b;width:16.66666667%;border-color:#ff6b6b;border-width:7px;">
+</div>
+
 
 <!-- =========================
      HERO
 ========================= -->
 
 <section id="hero">
+
     <header class="hero">
 
         <h1 class="logo">
-
             <span>T</span>
             <span>E</span>
             <span>T</span>
             <span>R</span>
             <span>I</span>
             <span>S</span>
-
         </h1>
 
         <p>
@@ -514,19 +472,20 @@ footer {
             puzzle games ever created.
         </p>
 
-
-
     </header>
+
 </section>
 
-<div style="display: flex;width: 100%;">
-    <hr style="height: 5px; background-color: #00e5ff; width: 16.66666667%; border-color: #00ffff; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff4f9a; width: 16.66666667%; border-color: #ff4f9b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ffd43b; width: 16.66666667%; border-color: #ffd43b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #50fa7b; width: 16.66666667%; border-color: #50fa7b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #bd93f9; width: 16.66666667%; border-color: #bd93f9; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff6b6b; width: 16.66666667%; border-color: #ff6b6b; border-width: 7px;">
+
+<div style="display:flex;width:100%;">
+    <hr style="height:5px;background-color:#00e5ff;width:16.66666667%;border-color:#00ffff;border-width:7px;">
+    <hr style="height:5px;background-color:#ff4f9a;width:16.66666667%;border-color:#ff4f9b;border-width:7px;">
+    <hr style="height:5px;background-color:#ffd43b;width:16.66666667%;border-color:#ffd43b;border-width:7px;">
+    <hr style="height:5px;background-color:#50fa7b;width:16.66666667%;border-color:#50fa7b;border-width:7px;">
+    <hr style="height:5px;background-color:#bd93f9;width:16.66666667%;border-color:#bd93f9;border-width:7px;">
+    <hr style="height:5px;background-color:#ff6b6b;width:16.66666667%;border-color:#ff6b6b;border-width:7px;">
 </div>
+
 
 <!-- =========================
      ABOUT
@@ -540,9 +499,7 @@ footer {
         A simple idea that became a worldwide phenomenon.
     </p>
 
-
     <div class="intro">
-
 
         <div class="card">
 
@@ -584,19 +541,21 @@ footer {
 
         </div>
 
-
     </div>
 
 </section>
 
-<div style="display: flex;width: 100%;">
-    <hr style="height: 5px; background-color: #00e5ff; width: 16.66666667%; border-color: #00ffff; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff4f9a; width: 16.66666667%; border-color: #ff4f9b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ffd43b; width: 16.66666667%; border-color: #ffd43b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #50fa7b; width: 16.66666667%; border-color: #50fa7b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #bd93f9; width: 16.66666667%; border-color: #bd93f9; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff6b6b; width: 16.66666667%; border-color: #ff6b6b; border-width: 7px;">
+
+<div style="display:flex;width:100%;">
+    <hr style="height:5px;background-color:#00e5ff;width:16.66666667%;border-color:#00ffff;border-width:7px;">
+    <hr style="height:5px;background-color:#ff4f9a;width:16.66666667%;border-color:#ff4f9b;border-width:7px;">
+    <hr style="height:5px;background-color:#ffd43b;width:16.66666667%;border-color:#ffd43b;border-width:7px;">
+    <hr style="height:5px;background-color:#50fa7b;width:16.66666667%;border-color:#50fa7b;border-width:7px;">
+    <hr style="height:5px;background-color:#bd93f9;width:16.66666667%;border-color:#bd93f9;border-width:7px;">
+    <hr style="height:5px;background-color:#ff6b6b;width:16.66666667%;border-color:#ff6b6b;border-width:7px;">
 </div>
+
+
 <!-- =========================
      HISTORY
 ========================= -->
@@ -609,18 +568,12 @@ footer {
         From a Soviet computer to the entire world.
     </p>
 
-
     <div class="timeline">
 
-
         <div class="timeline-item">
-
-            <div class="year">
-                1984
-            </div>
+            <div class="year">1984</div>
 
             <div class="card">
-
                 <h3>Tetris is created</h3>
 
                 <p>
@@ -628,20 +581,14 @@ footer {
                     of Tetris in Moscow on an Electronika 60
                     computer.
                 </p>
-
             </div>
-
         </div>
 
 
         <div class="timeline-item">
-
-            <div class="year">
-                1985
-            </div>
+            <div class="year">1985</div>
 
             <div class="card">
-
                 <h3>The game spreads</h3>
 
                 <p>
@@ -649,80 +596,56 @@ footer {
                     starts spreading beyond its original
                     environment.
                 </p>
-
             </div>
-
         </div>
 
 
         <div class="timeline-item">
-
-            <div class="year">
-                1987
-            </div>
+            <div class="year">1987</div>
 
             <div class="card">
-
                 <h3>Tetris reaches the West</h3>
 
                 <p>
                     Tetris becomes available in North America
                     and Europe.
                 </p>
-
             </div>
-
         </div>
 
 
         <div class="timeline-item">
-
-            <div class="year">
-                1989
-            </div>
+            <div class="year">1989</div>
 
             <div class="card">
-
                 <h3>The Game Boy</h3>
 
                 <p>
                     Nintendo releases the Game Boy with Tetris,
                     helping the game become a worldwide hit.
                 </p>
-
             </div>
-
         </div>
 
 
         <div class="timeline-item">
-
-            <div class="year">
-                1993
-            </div>
+            <div class="year">1993</div>
 
             <div class="card">
-
                 <h3>Tetris in space 🚀</h3>
 
                 <p>
                     Tetris became the first video game played
                     in space, according to Guinness World Records.
                 </p>
-
             </div>
-
         </div>
 
 
         <div class="timeline-item">
-
-            <div class="year">
-                1996
-            </div>
+            <div class="year">1996</div>
 
             <div class="card">
-
                 <h3>The Tetris Company</h3>
 
                 <p>
@@ -730,67 +653,54 @@ footer {
                     the company responsible for managing the
                     Tetris brand.
                 </p>
-
             </div>
-
         </div>
 
 
         <div class="timeline-item">
-
-            <div class="year">
-                2014
-            </div>
+            <div class="year">2014</div>
 
             <div class="card">
-
                 <h3>30th Anniversary</h3>
 
                 <p>
                     Tetris celebrates 30 years since its creation.
                 </p>
-
             </div>
-
         </div>
 
 
         <div class="timeline-item">
-
-            <div class="year">
-                2024
-            </div>
+            <div class="year">2024</div>
 
             <div class="card">
-
                 <h3>40th Anniversary 🎉</h3>
 
                 <p>
                     Tetris celebrates 40 years since Alexey
                     Pajitnov created the original game.
                 </p>
-
             </div>
-
         </div>
-
 
     </div>
 
 </section>
 
 
+<div style="display:flex;width:100%;">
+    <hr style="height:5px;background-color:#00e5ff;width:16.66666667%;border-color:#00ffff;border-width:7px;">
+    <hr style="height:5px;background-color:#ff4f9a;width:16.66666667%;border-color:#ff4f9b;border-width:7px;">
+    <hr style="height:5px;background-color:#ffd43b;width:16.66666667%;border-color:#ffd43b;border-width:7px;">
+    <hr style="height:5px;background-color:#50fa7b;width:16.66666667%;border-color:#50fa7b;border-width:7px;">
+    <hr style="height:5px;background-color:#bd93f9;width:16.66666667%;border-color:#bd93f9;border-width:7px;">
+    <hr style="height:5px;background-color:#ff6b6b;width:16.66666667%;border-color:#ff6b6b;border-width:7px;">
+</div>
+
+
 <!-- =========================
      FACTS
 ========================= -->
-<div style="display: flex;width: 100%;">
-    <hr style="height: 5px; background-color: #00e5ff; width: 16.66666667%; border-color: #00ffff; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff4f9a; width: 16.66666667%; border-color: #ff4f9b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ffd43b; width: 16.66666667%; border-color: #ffd43b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #50fa7b; width: 16.66666667%; border-color: #50fa7b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #bd93f9; width: 16.66666667%; border-color: #bd93f9; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff6b6b; width: 16.66666667%; border-color: #ff6b6b; border-width: 7px;">
-</div>
 
 <section id="facts">
 
@@ -800,104 +710,56 @@ footer {
         Some interesting facts about the game.
     </p>
 
-
     <div class="facts">
 
-
         <div class="fact">
-
-            <div class="fact-number">
-                1984
-            </div>
-
-            <p>
-                The year Tetris was created.
-            </p>
-
+            <div class="fact-number">1984</div>
+            <p>The year Tetris was created.</p>
         </div>
 
-
         <div class="fact">
-
-            <div class="fact-number">
-                7
-            </div>
-
-            <p>
-                There are seven classic Tetrimino shapes.
-            </p>
-
+            <div class="fact-number">7</div>
+            <p>There are seven classic Tetrimino shapes.</p>
         </div>
 
-
         <div class="fact">
-
-            <div class="fact-number">
-                4
-            </div>
-
-            <p>
-                Each classic Tetrimino contains four squares.
-            </p>
-
+            <div class="fact-number">4</div>
+            <p>Each classic Tetrimino contains four squares.</p>
         </div>
 
-
         <div class="fact">
-
-            <div class="fact-number">
-                10
-            </div>
-
-            <p>
-                A standard Tetris playfield is 10 columns wide.
-            </p>
-
+            <div class="fact-number">10</div>
+            <p>A standard Tetris playfield is 10 columns wide.</p>
         </div>
 
-
         <div class="fact">
-
-            <div class="fact-number">
-                20
-            </div>
-
-            <p>
-                A standard visible playfield is 20 rows high.
-            </p>
-
+            <div class="fact-number">20</div>
+            <p>A standard visible playfield is 20 rows high.</p>
         </div>
 
-
         <div class="fact">
-
-            <div class="fact-number">
-                40+
-            </div>
-
-            <p>
-                Tetris has been around for more than four decades.
-            </p>
-
+            <div class="fact-number">40+</div>
+            <p>Tetris has been around for more than four decades.</p>
         </div>
-
 
     </div>
 
 </section>
 
 
-<!-- =========================
-     GAME
-========================= -->
-<div style="display: flex;width: 100%;">
-    <hr style="height: 5px; background-color: #00e5ff; width: 16.66666667%; border-color: #00ffff; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff4f9a; width: 16.66666667%; border-color: #ff4f9b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ffd43b; width: 16.66666667%; border-color: #ffd43b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #50fa7b; width: 16.66666667%; border-color: #50fa7b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #bd93f9; width: 16.66666667%; border-color: #bd93f9; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff6b6b; width: 16.66666667%; border-color: #ff6b6b; border-width: 7px;">
+<div style="display:flex;width:100%;">
+    <hr style="height:5px;background-color:#00e5ff;width:16.66666667%;border-color:#00ffff;border-width:7px;">
+    <hr style="height:5px;background-color:#ff4f9a;width:16.66666667%;border-color:#ff4f9b;border-width:7px;">
+    <hr style="height:5px;background-color:#ffd43b;width:16.66666667%;border-color:#ffd43b;border-width:7px;">
+    <hr style="height:5px;background-color:#50fa7b;width:16.66666667%;border-color:#50fa7b;border-width:7px;">
+    <hr style="height:5px;background-color:#bd93f9;width:16.66666667%;border-color:#bd93f9;border-width:7px;">
+    <hr style="height:5px;background-color:#ff6b6b;width:16.66666667%;border-color:#ff6b6b;border-width:7px;">
 </div>
+
+
+<!-- =========================
+     TETRIMINOS
+========================= -->
 
 <section id="Tetriminos">
 
@@ -905,119 +767,214 @@ footer {
 
     <p class="subtitle">
         Each Tetrimino has a name!
-    
+    </p>
 
-    <!-- NEW SECTION: Tetrimino Glossary Grid -->
-    <h3 style="text-align: center; color: #fff; margin-bottom: 20px;">The 7 Tetrimino Shapes</h3>
-    <div class="tetrimino-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; padding: 10px;">
-        
-        <!-- I-Tetrimino -->
-        <div class="fact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <div style="display: grid; grid-template-columns: repeat(4, 20px); gap: 2px; margin-bottom: 15px;">
-                <div style="width: 20px; height: 20px; background-color: #00e5ff; box-shadow: 0 0 5px #00e5ff;"></div>
-                <div style="width: 20px; height: 20px; background-color: #00e5ff; box-shadow: 0 0 5px #00e5ff;"></div>
-                <div style="width: 20px; height: 20px; background-color: #00e5ff; box-shadow: 0 0 5px #00e5ff;"></div>
-                <div style="width: 20px; height: 20px; background-color: #00e5ff; box-shadow: 0 0 5px #00e5ff;"></div>
+    <h3 style="text-align:center;color:#fff;margin-bottom:20px;">
+        The 7 Tetrimino Shapes
+    </h3>
+
+
+    <div
+        class="tetrimino-grid"
+        style="
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+            gap:20px;
+            padding:10px;
+        "
+    >
+
+        <!-- I -->
+        <div class="fact" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+            <div style="display:grid;grid-template-columns:repeat(4,20px);gap:2px;margin-bottom:15px;">
+
+                <div style="width:20px;height:20px;background-color:#00e5ff;box-shadow:0 0 5px #00e5ff;"></div>
+                <div style="width:20px;height:20px;background-color:#00e5ff;box-shadow:0 0 5px #00e5ff;"></div>
+                <div style="width:20px;height:20px;background-color:#00e5ff;box-shadow:0 0 5px #00e5ff;"></div>
+                <div style="width:20px;height:20px;background-color:#00e5ff;box-shadow:0 0 5px #00e5ff;"></div>
+
             </div>
-            <div class="fact-number" style="font-size: 1.8rem; color: #00e5ff;">I-Piece</div>
-            <p style="margin: 5px 0 0 0;">  <strong>"Hero"</strong></p>
+
+            <div class="fact-number" style="font-size:1.8rem;color:#00e5ff;">
+                I-Piece
+            </div>
+
+            <p><strong>"Hero"</strong></p>
+
         </div>
 
-        <!-- T-Tetrimino -->
-        <div class="fact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <div style="display: grid; grid-template-columns: repeat(3, 20px); gap: 2px; margin-bottom: 15px;">
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ba55d3; box-shadow: 0 0 5px #ba55d3;"></div>
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ba55d3; box-shadow: 0 0 5px #ba55d3;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ba55d3; box-shadow: 0 0 5px #ba55d3;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ba55d3; box-shadow: 0 0 5px #ba55d3;"></div>
+
+        <!-- T -->
+        <div class="fact" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+            <div style="display:grid;grid-template-columns:repeat(3,20px);gap:2px;margin-bottom:15px;">
+
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+
+                <div style="width:20px;height:20px;background-color:#ba55d3;box-shadow:0 0 5px #ba55d3;"></div>
+
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+
+                <div style="width:20px;height:20px;background-color:#ba55d3;box-shadow:0 0 5px #ba55d3;"></div>
+
+                <div style="width:20px;height:20px;background-color:#ba55d3;box-shadow:0 0 5px #ba55d3;"></div>
+
+                <div style="width:20px;height:20px;background-color:#ba55d3;box-shadow:0 0 5px #ba55d3;"></div>
+
             </div>
-            <div class="fact-number" style="font-size: 1.8rem; color: #ba55d3;">T-Piece</div>
-            <p style="margin: 5px 0 0 0;"> <strong>"Teewee"</strong></p>
+
+            <div class="fact-number" style="font-size:1.8rem;color:#ba55d3;">
+                T-Piece
+            </div>
+
+            <p><strong>"Teewee"</strong></p>
+
         </div>
 
-        <!-- O-Tetrimino -->
-        <div class="fact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <div style="display: grid; grid-template-columns: repeat(2, 20px); gap: 2px; margin-bottom: 15px;">
-                <div style="width: 20px; height: 20px; background-color: #ffd700; box-shadow: 0 0 5px #ffd700;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ffd700; box-shadow: 0 0 5px #ffd700;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ffd700; box-shadow: 0 0 5px #ffd700;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ffd700; box-shadow: 0 0 5px #ffd700;"></div>
+
+        <!-- O -->
+        <div class="fact" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+            <div style="display:grid;grid-template-columns:repeat(2,20px);gap:2px;margin-bottom:15px;">
+
+                <div style="width:20px;height:20px;background-color:#ffd700;box-shadow:0 0 5px #ffd700;"></div>
+                <div style="width:20px;height:20px;background-color:#ffd700;box-shadow:0 0 5px #ffd700;"></div>
+                <div style="width:20px;height:20px;background-color:#ffd700;box-shadow:0 0 5px #ffd700;"></div>
+                <div style="width:20px;height:20px;background-color:#ffd700;box-shadow:0 0 5px #ffd700;"></div>
+
             </div>
-            <div class="fact-number" style="font-size: 1.8rem; color: #ffd700;">O-Piece</div>
-            <p style="margin: 5px 0 0 0;">   <strong>"Smashboy"</strong></p>
+
+            <div class="fact-number" style="font-size:1.8rem;color:#ffd700;">
+                O-Piece
+            </div>
+
+            <p><strong>"Smashboy"</strong></p>
+
         </div>
 
-        <!-- L-Tetrimino -->
-        <div class="fact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <div style="display: grid; grid-template-columns: repeat(3, 20px); gap: 2px; margin-bottom: 15px;">
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ff8c00; box-shadow: 0 0 5px #ff8c00;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ff8c00; box-shadow: 0 0 5px #ff8c00;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ff8c00; box-shadow: 0 0 5px #ff8c00;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ff8c00; box-shadow: 0 0 5px #ff8c00;"></div>
+
+        <!-- L -->
+        <div class="fact" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+            <div style="display:grid;grid-template-columns:repeat(3,20px);gap:2px;margin-bottom:15px;">
+
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+
+                <div style="width:20px;height:20px;background-color:#ff8c00;box-shadow:0 0 5px #ff8c00;"></div>
+
+                <div style="width:20px;height:20px;background-color:#ff8c00;box-shadow:0 0 5px #ff8c00;"></div>
+                <div style="width:20px;height:20px;background-color:#ff8c00;box-shadow:0 0 5px #ff8c00;"></div>
+                <div style="width:20px;height:20px;background-color:#ff8c00;box-shadow:0 0 5px #ff8c00;"></div>
+
             </div>
-            <div class="fact-number" style="font-size: 1.8rem; color: #ff8c00;">L-Piece</div>
-            <p style="margin: 5px 0 0 0;"> <strong>"Orange Ricky"</strong></p>
+
+            <div class="fact-number" style="font-size:1.8rem;color:#ff8c00;">
+                L-Piece
+            </div>
+
+            <p><strong>"Orange Ricky"</strong></p>
+
         </div>
 
-        <!-- J-Tetrimino -->
-        <div class="fact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <div style="display: grid; grid-template-columns: repeat(3, 20px); gap: 2px; margin-bottom: 15px;">
-                <div style="width: 20px; height: 20px; background-color: #1e90ff; box-shadow: 0 0 5px #1e90ff;"></div>
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; background-color: #1e90ff; box-shadow: 0 0 5px #1e90ff;"></div>
-                <div style="width: 20px; height: 20px; background-color: #1e90ff; box-shadow: 0 0 5px #1e90ff;"></div>
-                <div style="width: 20px; height: 20px; background-color: #1e90ff; box-shadow: 0 0 5px #1e90ff;"></div>
+
+        <!-- J -->
+        <div class="fact" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+            <div style="display:grid;grid-template-columns:repeat(3,20px);gap:2px;margin-bottom:15px;">
+
+                <div style="width:20px;height:20px;background-color:#1e90ff;box-shadow:0 0 5px #1e90ff;"></div>
+
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+
+                <div style="width:20px;height:20px;background-color:#1e90ff;box-shadow:0 0 5px #1e90ff;"></div>
+                <div style="width:20px;height:20px;background-color:#1e90ff;box-shadow:0 0 5px #1e90ff;"></div>
+                <div style="width:20px;height:20px;background-color:#1e90ff;box-shadow:0 0 5px #1e90ff;"></div>
+
             </div>
-            <div class="fact-number" style="font-size: 1.8rem; color: #1e90ff;">J-Piece</div>
-            <p style="margin: 5px 0 0 0;"> <strong>   "Blue Ricky"</strong></p>
+
+            <div class="fact-number" style="font-size:1.8rem;color:#1e90ff;">
+                J-Piece
+            </div>
+
+            <p><strong>"Blue Ricky"</strong></p>
+
         </div>
 
-        <!-- S-Tetrimino -->
-        <div class="fact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <div style="display: grid; grid-template-columns: repeat(3, 20px); gap: 2px; margin-bottom: 15px;">
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; background-color: #32cd32; box-shadow: 0 0 5px #32cd32;"></div>
-                <div style="width: 20px; height: 20px; background-color: #32cd32; box-shadow: 0 0 5px #32cd32;"></div>
-                <div style="width: 20px; height: 20px; background-color: #32cd32; box-shadow: 0 0 5px #32cd32;"></div>
-                <div style="width: 20px; height: 20px; background-color: #32cd32; box-shadow: 0 0 5px #32cd32;"></div>
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
+
+        <!-- S -->
+        <div class="fact" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+            <div style="display:grid;grid-template-columns:repeat(3,20px);gap:2px;margin-bottom:15px;">
+
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+
+                <div style="width:20px;height:20px;background-color:#32cd32;box-shadow:0 0 5px #32cd32;"></div>
+
+                <div style="width:20px;height:20px;background-color:#32cd32;box-shadow:0 0 5px #32cd32;"></div>
+
+                <div style="width:20px;height:20px;background-color:#32cd32;box-shadow:0 0 5px #32cd32;"></div>
+
+                <div style="width:20px;height:20px;background-color:#32cd32;box-shadow:0 0 5px #32cd32;"></div>
+
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+
             </div>
-            <div class="fact-number" style="font-size: 1.8rem; color: #32cd32;">S-Piece</div>
-            <p style="margin: 5px 0 0 0;"> <strong>   "Rhode Island Z"</strong></p>
+
+            <div class="fact-number" style="font-size:1.8rem;color:#32cd32;">
+                S-Piece
+            </div>
+
+            <p><strong>"Rhode Island Z"</strong></p>
+
         </div>
 
-        <!-- Z-Tetrimino -->
-        <div class="fact" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <div style="display: grid; grid-template-columns: repeat(3, 20px); gap: 2px; margin-bottom: 15px;">
-                <div style="width: 20px; height: 20px; background-color: #ff0000; box-shadow: 0 0 5px #ff0000;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ff0000; box-shadow: 0 0 5px #ff0000;"></div>
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; visibility: hidden;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ff0000; box-shadow: 0 0 5px #ff0000;"></div>
-                <div style="width: 20px; height: 20px; background-color: #ff0000; box-shadow: 0 0 5px #ff0000;"></div>
+
+        <!-- Z -->
+        <div class="fact" style="display:flex;flex-direction:column;align-items:center;text-align:center;">
+
+            <div style="display:grid;grid-template-columns:repeat(3,20px);gap:2px;margin-bottom:15px;">
+
+                <div style="width:20px;height:20px;background-color:#ff0000;box-shadow:0 0 5px #ff0000;"></div>
+                <div style="width:20px;height:20px;background-color:#ff0000;box-shadow:0 0 5px #ff0000;"></div>
+
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+
+                <div style="width:20px;height:20px;visibility:hidden;"></div>
+
+                <div style="width:20px;height:20px;background-color:#ff0000;box-shadow:0 0 5px #ff0000;"></div>
+                <div style="width:20px;height:20px;background-color:#ff0000;box-shadow:0 0 5px #ff0000;"></div>
+
             </div>
-            <div class="fact-number" style="font-size: 1.8rem; color: #ff0000;">Z-Piece</div>
-            <p style="margin: 5px 0 0 0;">   <strong>   "Cleveland Z"</strong></p>
+
+            <div class="fact-number" style="font-size:1.8rem;color:#ff0000;">
+                Z-Piece
+            </div>
+
+            <p><strong>"Cleveland Z"</strong></p>
+
         </div>
 
     </div>
 
 </section>
 
-<div style="display: flex;width: 100%;">
-    <hr style="height: 5px; background-color: #00e5ff; width: 16.66666667%; border-color: #00ffff; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff4f9a; width: 16.66666667%; border-color: #ff4f9b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ffd43b; width: 16.66666667%; border-color: #ffd43b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #50fa7b; width: 16.66666667%; border-color: #50fa7b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #bd93f9; width: 16.66666667%; border-color: #bd93f9; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff6b6b; width: 16.66666667%; border-color: #ff6b6b; border-width: 7px;">
+
+<div style="display:flex;width:100%;">
+    <hr style="height:5px;background-color:#00e5ff;width:16.66666667%;border-color:#00ffff;border-width:7px;">
+    <hr style="height:5px;background-color:#ff4f9a;width:16.66666667%;border-color:#ff4f9b;border-width:7px;">
+    <hr style="height:5px;background-color:#ffd43b;width:16.66666667%;border-color:#ffd43b;border-width:7px;">
+    <hr style="height:5px;background-color:#50fa7b;width:16.66666667%;border-color:#50fa7b;border-width:7px;">
+    <hr style="height:5px;background-color:#bd93f9;width:16.66666667%;border-color:#bd93f9;border-width:7px;">
+    <hr style="height:5px;background-color:#ff6b6b;width:16.66666667%;border-color:#ff6b6b;border-width:7px;">
 </div>
 
+
+<!-- =========================
+     GAME
+========================= -->
 
 <section id="game">
 
@@ -1027,52 +984,29 @@ footer {
         Place blocks, clear rows, and beat your high score!
     </p>
 
-
     <div class="game-area">
 
         <div class="game-box">
 
-
-            <!-- SCORE PANEL -->
-
             <div class="score-panel">
 
                 <div class="score-item">
-
                     <small>SCORE</small>
-
-                    <strong id="score">
-                        0
-                    </strong>
-
+                    <strong id="score">0</strong>
                 </div>
 
-
                 <div class="score-item">
-
                     <small>LINES</small>
-
-                    <strong id="lines">
-                        0
-                    </strong>
-
+                    <strong id="lines">0</strong>
                 </div>
 
-
                 <div class="score-item">
-
                     <small>LEVEL</small>
-
-                    <strong id="level">
-                        1
-                    </strong>
-
+                    <strong id="level">1</strong>
                 </div>
 
             </div>
 
-
-            <!-- GAME BOARD -->
 
             <canvas
                 id="gameCanvas"
@@ -1089,13 +1023,9 @@ footer {
             </button>
 
 
-            <!-- CONTROLS -->
-
             <div class="controls">
 
-                <p>
-                    <strong>Controls</strong>
-                </p>
+                <p><strong>Controls</strong></p>
 
                 <p>
                     ⬅️ Left &nbsp;&nbsp;
@@ -1112,28 +1042,17 @@ footer {
                 </p>
 
 
-                <button onclick="move(-1)">
-                    ◀
-                </button>
+                <button onclick="move(-1)">◀</button>
 
-                <button onclick="rotatePiece()">
-                    ↻
-                </button>
+                <button onclick="rotatePiece()">↻</button>
 
-                <button onclick="move(1)">
-                    ▶
-                </button>
+                <button onclick="move(1)">▶</button>
 
-                <button onclick="softDrop()">
-                    ▼
-                </button>
+                <button onclick="softDrop()">▼</button>
 
-                <button onclick="hardDrop()">
-                    ⬇ DROP
-                </button>
+                <button onclick="hardDrop()">⬇ DROP</button>
 
             </div>
-
 
         </div>
 
@@ -1145,14 +1064,16 @@ footer {
 <!-- =========================
      SOURCES
 ========================= -->
-<div style="display: flex;width: 100%;">
-    <hr style="height: 5px; background-color: #00e5ff; width: 16.66666667%; border-color: #00ffff; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff4f9a; width: 16.66666667%; border-color: #ff4f9b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ffd43b; width: 16.66666667%; border-color: #ffd43b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #50fa7b; width: 16.66666667%; border-color: #50fa7b; border-width: 7px;">
-    <hr style="height: 5px; background-color: #bd93f9; width: 16.66666667%; border-color: #bd93f9; border-width: 7px;">
-    <hr style="height: 5px; background-color: #ff6b6b; width: 16.66666667%; border-color: #ff6b6b; border-width: 7px;">
+
+<div style="display:flex;width:100%;">
+    <hr style="height:5px;background-color:#00e5ff;width:16.66666667%;border-color:#00ffff;border-width:7px;">
+    <hr style="height:5px;background-color:#ff4f9a;width:16.66666667%;border-color:#ff4f9b;border-width:7px;">
+    <hr style="height:5px;background-color:#ffd43b;width:16.66666667%;border-color:#ffd43b;border-width:7px;">
+    <hr style="height:5px;background-color:#50fa7b;width:16.66666667%;border-color:#50fa7b;border-width:7px;">
+    <hr style="height:5px;background-color:#bd93f9;width:16.66666667%;border-color:#bd93f9;border-width:7px;">
+    <hr style="height:5px;background-color:#ff6b6b;width:16.66666667%;border-color:#ff6b6b;border-width:7px;">
 </div>
+
 
 <section id="sources">
 
@@ -1162,28 +1083,21 @@ footer {
         Sources used for the historical information.
     </p>
 
-
     <div class="card sources">
 
         <ul>
 
             <li>
 
-                <strong>
-                    The Tetris Company
-                </strong>
+                <strong>The Tetris Company</strong>
 
                 <p>
                     Official information about the creation
                     and history of Tetris.
                 </p>
 
-                <a
-                    href="https://tetris.com/about"
-                    target="_blank">
-
+                <a href="https://tetris.com/about" target="_blank">
                     Tetris.com — About
-
                 </a>
 
             </li>
@@ -1191,20 +1105,14 @@ footer {
 
             <li>
 
-                <strong>
-                    Tetris.com
-                </strong>
+                <strong>Tetris.com</strong>
 
                 <p>
                     Official website for Tetris.
                 </p>
 
-                <a
-                    href="https://tetris.com/"
-                    target="_blank">
-
+                <a href="https://tetris.com/" target="_blank">
                     Tetris.com
-
                 </a>
 
             </li>
@@ -1212,21 +1120,15 @@ footer {
 
             <li>
 
-                <strong>
-                    Smithsonian Magazine
-                </strong>
+                <strong>Smithsonian Magazine</strong>
 
                 <p>
                     Information about video game history
                     and the Game Boy.
                 </p>
 
-                <a
-                    href="https://www.smithsonianmag.com/"
-                    target="_blank">
-
+                <a href="https://www.smithsonianmag.com/" target="_blank">
                     Smithsonian Magazine
-
                 </a>
 
             </li>
@@ -1234,21 +1136,15 @@ footer {
 
             <li>
 
-                <strong>
-                    Guinness World Records
-                </strong>
+                <strong>Guinness World Records</strong>
 
                 <p>
                     Information about Tetris and its
                     achievements.
                 </p>
 
-                <a
-                    href="https://www.guinnessworldrecords.com/"
-                    target="_blank">
-
+                <a href="https://www.guinnessworldrecords.com/" target="_blank">
                     Guinness World Records
-
                 </a>
 
             </li>
@@ -1283,9 +1179,353 @@ footer {
 
 <script>
 
+/* =========================================================
+   PARTICLE BACKGROUND
+========================================================= */
+
+const particleCanvas =
+    document.getElementById("particleCanvas");
+
+const particleCtx =
+    particleCanvas.getContext("2d");
+
+let particles = [];
+
+const PARTICLE_COUNT = 300;
+
+const particleColors = [
+    "#00e5ff",
+    "#ff4f9a",
+    "#ffd43b",
+    "#50fa7b",
+    "#bd93f9",
+    "#ff6b6b"
+];
+
+
+function resizeParticleCanvas() {
+
+    particleCanvas.width =
+        window.innerWidth;
+
+    particleCanvas.height =
+        window.innerHeight;
+
+}
+
+
+window.addEventListener(
+    "resize",
+    resizeParticleCanvas
+);
+
+
+resizeParticleCanvas();
+
+
 /* =========================
-   GAME SETTINGS
+   CREATE PARTICLES
 ========================= */
+
+function createParticles() {
+
+    particles = [];
+
+    for (
+        let i = 0;
+        i < PARTICLE_COUNT;
+        i++
+    ) {
+
+        particles.push({
+
+            x:
+                Math.random() *
+                particleCanvas.width,
+
+            y:
+                Math.random() *
+                particleCanvas.height,
+
+            size:
+                Math.random() * 2.5 + 0.5,
+
+            speedX:
+                (Math.random() - 0.5) * 0.65,
+
+            speedY:
+                (Math.random() - 0.5) * 0.65,
+
+            alpha:
+                Math.random() * 0.75 + 0.15,
+
+            color:
+                particleColors[
+                    Math.floor(
+                        Math.random() *
+                        particleColors.length
+                    )
+                ],
+
+            pulse:
+                Math.random() * Math.PI * 2,
+
+            pulseSpeed:
+                Math.random() * 0.03 + 0.01
+
+        });
+
+    }
+
+}
+
+
+/* =========================
+   DRAW PARTICLES
+========================= */
+
+function drawParticles() {
+
+    particleCtx.clearRect(
+        0,
+        0,
+        particleCanvas.width,
+        particleCanvas.height
+    );
+
+
+    /* Move particles */
+
+    particles.forEach(
+        particle => {
+
+            particle.x +=
+                particle.speedX;
+
+            particle.y +=
+                particle.speedY;
+
+
+            particle.pulse +=
+                particle.pulseSpeed;
+
+
+            /* Slight pulsing */
+
+            const pulse =
+                Math.sin(
+                    particle.pulse
+                ) * 0.25 + 0.75;
+
+
+            /* Wrap around screen */
+
+            if (
+                particle.x < -20
+            ) {
+
+                particle.x =
+                    particleCanvas.width + 20;
+
+            }
+
+            if (
+                particle.x >
+                particleCanvas.width + 20
+            ) {
+
+                particle.x = -20;
+
+            }
+
+            if (
+                particle.y < -20
+            ) {
+
+                particle.y =
+                    particleCanvas.height + 20;
+
+            }
+
+            if (
+                particle.y >
+                particleCanvas.height + 20
+            ) {
+
+                particle.y = -20;
+
+            }
+
+
+            /* Large glow */
+
+            particleCtx.beginPath();
+
+            particleCtx.arc(
+                particle.x,
+                particle.y,
+                particle.size * 7,
+                0,
+                Math.PI * 2
+            );
+
+            particleCtx.globalAlpha =
+                particle.alpha *
+                0.08 *
+                pulse;
+
+            particleCtx.fillStyle =
+                particle.color;
+
+            particleCtx.fill();
+
+
+            /* Medium glow */
+
+            particleCtx.beginPath();
+
+            particleCtx.arc(
+                particle.x,
+                particle.y,
+                particle.size * 3,
+                0,
+                Math.PI * 2
+            );
+
+            particleCtx.globalAlpha =
+                particle.alpha *
+                0.2 *
+                pulse;
+
+            particleCtx.fillStyle =
+                particle.color;
+
+            particleCtx.fill();
+
+
+            /* Main particle */
+
+            particleCtx.beginPath();
+
+            particleCtx.arc(
+                particle.x,
+                particle.y,
+                particle.size *
+                pulse,
+                0,
+                Math.PI * 2
+            );
+
+            particleCtx.globalAlpha =
+                particle.alpha;
+
+            particleCtx.fillStyle =
+                particle.color;
+
+            particleCtx.fill();
+
+            particleCtx.globalAlpha = 1;
+
+        }
+    );
+
+
+    /* =====================================================
+       CONNECT NEARBY PARTICLES
+    ===================================================== */
+
+    for (
+        let i = 0;
+        i < particles.length;
+        i++
+    ) {
+
+        for (
+            let j = i + 1;
+            j < particles.length;
+            j++
+        ) {
+
+            const a =
+                particles[i];
+
+            const b =
+                particles[j];
+
+
+            const dx =
+                a.x - b.x;
+
+            const dy =
+                a.y - b.y;
+
+            const distance =
+                Math.sqrt(
+                    dx * dx +
+                    dy * dy
+                );
+
+
+            if (
+                distance < 110
+            ) {
+
+                const opacity =
+                    (1 - distance / 110)
+                    * 0.16;
+
+
+                particleCtx.beginPath();
+
+                particleCtx.moveTo(
+                    a.x,
+                    a.y
+                );
+
+                particleCtx.lineTo(
+                    b.x,
+                    b.y
+                );
+
+                particleCtx.strokeStyle =
+                    `rgba(189,147,249,${opacity})`;
+
+                particleCtx.lineWidth = 0.7;
+
+                particleCtx.stroke();
+
+            }
+
+        }
+
+    }
+
+}
+
+
+/* =========================
+   PARTICLE ANIMATION
+========================= */
+
+function particleAnimation() {
+
+    drawParticles();
+
+    requestAnimationFrame(
+        particleAnimation
+    );
+
+}
+
+
+createParticles();
+
+particleAnimation();
+
+
+/* =========================================================
+   TETRIS GAME
+========================================================= */
 
 const canvas =
     document.getElementById("gameCanvas");
@@ -1299,10 +1539,6 @@ const ROWS = 20;
 
 const BLOCK = 24;
 
-
-/* =========================
-   GAME VARIABLES
-========================= */
 
 let board;
 
@@ -1453,7 +1689,8 @@ function drawBlock(
     color
 ) {
 
-    ctx.fillStyle = color;
+    ctx.fillStyle =
+        color;
 
     ctx.fillRect(
         x * BLOCK,
@@ -1462,7 +1699,9 @@ function drawBlock(
         BLOCK
     );
 
-    ctx.strokeStyle = "#111122";
+
+    ctx.strokeStyle =
+        "#111122";
 
     ctx.lineWidth = 2;
 
@@ -1482,7 +1721,8 @@ function drawBlock(
 
 function draw() {
 
-    ctx.fillStyle = "#050509";
+    ctx.fillStyle =
+        "#050509";
 
     ctx.fillRect(
         0,
@@ -1491,8 +1731,6 @@ function draw() {
         canvas.height
     );
 
-
-    /* DRAW BOARD */
 
     for (
         let y = 0;
@@ -1520,8 +1758,6 @@ function draw() {
 
     }
 
-
-    /* DRAW CURRENT PIECE */
 
     if (currentPiece) {
 
@@ -1651,11 +1887,8 @@ function mergePiece() {
     );
 
 
-    /*
-       EVERY BLOCK PLACED = +1
-    */
-
-    score += blocksPlaced;
+    score +=
+        blocksPlaced;
 
 
     updateStats();
@@ -1704,20 +1937,13 @@ function clearLines() {
     }
 
 
-    /*
-       EVERY ROW CLEARED = +10
-
-       1 ROW = +10
-       2 ROWS = +20
-       3 ROWS = +30
-       4 ROWS = +40
-    */
-
     if (cleared > 0) {
 
-        score += cleared * 10;
+        score +=
+            cleared * 10;
 
-        lines += cleared;
+        lines +=
+            cleared;
 
 
         level =
@@ -1744,12 +1970,14 @@ function move(direction) {
     }
 
 
-    currentPiece.x += direction;
+    currentPiece.x +=
+        direction;
 
 
     if (collision()) {
 
-        currentPiece.x -= direction;
+        currentPiece.x -=
+            direction;
 
     }
 
@@ -1867,11 +2095,6 @@ function hardDrop() {
     }
 
 
-    /*
-       HARD DROP GIVES
-       ZERO POINTS
-    */
-
     while (!collision()) {
 
         currentPiece.y++;
@@ -1920,7 +2143,6 @@ function rotatePiece() {
 
     const rows =
         oldShape.length;
-
 
     const cols =
         oldShape[0].length;
@@ -1978,17 +2200,20 @@ function updateStats() {
 
     document.getElementById(
         "score"
-    ).textContent = score;
+    ).textContent =
+        score;
 
 
     document.getElementById(
         "lines"
-    ).textContent = lines;
+    ).textContent =
+        lines;
 
 
     document.getElementById(
         "level"
-    ).textContent = level;
+    ).textContent =
+        level;
 
 }
 
@@ -2027,7 +2252,6 @@ function restartGame() {
 document.addEventListener(
     "keydown",
     function(event) {
-
 
         if (
             event.key === "ArrowLeft" ||
@@ -2096,12 +2320,14 @@ function gameLoop(time) {
         time - lastTime;
 
 
-    lastTime = time;
+    lastTime =
+        time;
 
 
     if (!gameOver) {
 
-        dropTimer += delta;
+        dropTimer +=
+            delta;
 
 
         const speed =
